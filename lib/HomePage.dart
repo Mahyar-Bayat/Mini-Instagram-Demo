@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+import 'package:mini_insta_demo/pages/account_page.dart';
+import 'package:mini_insta_demo/pages/favorite_page.dart';
+import 'package:mini_insta_demo/pages/home_page.dart';
+import 'package:mini_insta_demo/pages/plus_page.dart';
+import 'package:mini_insta_demo/pages/search_page.dart';
+
+class HomePages extends StatefulWidget {
+  const HomePages({Key? key}) : super(key: key);
+
+  @override
+  _HomePagesState createState() => _HomePagesState();
+}
+
+class _HomePagesState extends State<HomePages> {
+  String CurrentPage = 'home';
+
+  final Map<String, Widget> pages = <String, Widget>{
+    'home': const home_page(),
+    'search': const search_page(),
+    'plus': const plus_page(),
+    'favorite': const favorite_page(),
+    'account': const account_page(),
+  };
+
+  final appBar = AppBar(
+    backgroundColor: const Color(0xfff8f8f8),
+    elevation: 3,
+    centerTitle: true,
+    title: SizedBox(
+      height: 100,
+      child: Image.asset('assets/images/1.png'),
+    ),
+    leading: const Icon(
+      Icons.camera_alt,
+      color: Colors.black,
+    ),
+    actions: const [
+      Padding(
+        padding: EdgeInsets.only(right: 15),
+        child: Icon(
+          Icons.send,
+          color: Colors.black,
+        ),
+      )
+    ],
+  );
+
+  change_page(String namePage) {
+    setState(() {
+      CurrentPage = namePage;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: appBar,
+      body: pages[CurrentPage],
+      bottomNavigationBar: Container(
+          height: 60,
+          color: Colors.white,
+          child: BottomAppBar(
+            elevation: 5,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                IconButton(
+                    icon: const Icon(Icons.home, color: Colors.black),
+                    onPressed: () {
+                      change_page('home');
+                    }),
+                IconButton(
+                    icon: const Icon(Icons.search, color: Colors.black),
+                    onPressed: () {
+                      change_page('search');
+                    }),
+                IconButton(
+                    icon: const Icon(Icons.add_box, color: Colors.black),
+                    onPressed: () {
+                      change_page('plus');
+                    }),
+                IconButton(
+                    icon: const Icon(Icons.favorite, color: Colors.black),
+                    onPressed: () {
+                      change_page('favorite');
+                    }),
+                IconButton(
+                    icon: const Icon(Icons.account_circle, color: Colors.black),
+                    onPressed: () {
+                      change_page('account');
+                    }),
+              ],
+            ),
+          )),
+    );
+  }
+}
