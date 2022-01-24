@@ -96,3 +96,70 @@ class _HomePagesState extends State<HomePages> {
     );
   }
 }
+
+// class HomePages extends StatefulWidget {
+//   const HomePages({Key? key}) : super(key: key);
+//
+//   @override
+//   _HomePagesState createState() => _HomePagesState();
+// }
+//
+// class _HomePagesState extends State<HomePages> {
+//   int CurrentPageIndex = 0;
+//
+//   final List pages = [
+//     home_page(),
+//     search_page(),
+//     plus_page(),
+//     favorite_page(),
+//     account_page(),
+//   ];
+//
+//   final appBar = AppBar(
+//     backgroundColor: const Color(0xfff8f8f8),
+//     elevation: 3,
+//     centerTitle: true,
+//     title: SizedBox(
+//       height: 100,
+//       child: Image.asset('assets/images/1.png'),
+//     ),
+//     leading: const Icon(
+//       Icons.camera_alt,
+//       color: Colors.black,
+//     ),
+//     actions: const [
+//       Padding(
+//         padding: EdgeInsets.only(right: 15),
+//         child: Icon(
+//           Icons.send,
+//           color: Colors.black,
+//         ),
+//       )
+//     ],
+//   );
+//
+//   change_page(int indexPage) {
+//     setState(() {
+//       CurrentPageIndex = indexPage;
+//     });
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: appBar,
+//       body: pages[CurrentPageIndex],
+//       bottomNavigationBar: BottomNavigationBar(
+//         items: const <BottomNavigationBarItem> [
+//
+//           BottomNavigationBarItem(icon: Icon(Icons.home, color: Colors.black45,),label: 'Home',backgroundColor: Colors.blueAccent),
+//           BottomNavigationBarItem(icon: Icon(Icons.search, color: Colors.black45,),label:'Search'),
+//           BottomNavigationBarItem(icon: Icon(Icons.add_box, color: Colors.black45,),label:'Plus'),
+//           // BottomNavigationBarItem(icon: Icon(Icons.favorite, color: Colors.black45,),label:'Favorite'),
+//           // BottomNavigationBarItem(icon: Icon(Icons.account_circle, color: Colors.black45,),label:'Profile'),
+//         ],
+//         onTap: change_page,
+//       )
+//     );
+//   }
+// }
