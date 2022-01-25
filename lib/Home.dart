@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mini_insta_demo/pages/account_page.dart';
 import 'package:mini_insta_demo/pages/favorite_page.dart';
 import 'package:mini_insta_demo/pages/home_page.dart';
 import 'package:mini_insta_demo/pages/plus_page.dart';
 import 'package:mini_insta_demo/pages/search_page.dart';
 
-class HomePages extends StatefulWidget {
-  const HomePages({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  _HomePagesState createState() => _HomePagesState();
+  _HomeState createState() => _HomeState();
 }
 
-class _HomePagesState extends State<HomePages> {
-  String CurrentPage = 'home';
+class _HomeState extends State<Home> {
+  String currentPage = 'home';
 
   final Map<String, Widget> pages = <String, Widget>{
-    'home': const home_page(),
-    'search': const search_page(),
-    'plus': const plus_page(),
-    'favorite': const favorite_page(),
-    'account': const account_page(),
+    'home': HomePage(),
+    'search': const SearchPage(),
+    'plus': const PlusPage(),
+    'favorite': const FavoritePage(),
+    'account': const AccountPage(),
   };
 
   final appBar = AppBar(
@@ -37,18 +38,18 @@ class _HomePagesState extends State<HomePages> {
     ),
     actions: const [
       Padding(
-        padding: EdgeInsets.only(right: 15),
+        padding: EdgeInsets.only(left: 15),
         child: Icon(
-          Icons.send,
+          FontAwesomeIcons.solidPaperPlane,
           color: Colors.black,
         ),
       )
     ],
   );
 
-  change_page(String namePage) {
+  changePage(String namePage) {
     setState(() {
-      CurrentPage = namePage;
+      currentPage = namePage;
     });
   }
 
@@ -56,39 +57,39 @@ class _HomePagesState extends State<HomePages> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,
-      body: pages[CurrentPage],
+      body: pages[currentPage],
       bottomNavigationBar: Container(
           height: 60,
           color: Colors.white,
           child: BottomAppBar(
-            elevation: 5,
+            elevation: 8,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 IconButton(
                     icon: const Icon(Icons.home, color: Colors.black),
                     onPressed: () {
-                      change_page('home');
+                      changePage('home');
                     }),
                 IconButton(
                     icon: const Icon(Icons.search, color: Colors.black),
                     onPressed: () {
-                      change_page('search');
+                      changePage('search');
                     }),
                 IconButton(
                     icon: const Icon(Icons.add_box, color: Colors.black),
                     onPressed: () {
-                      change_page('plus');
+                      changePage('plus');
                     }),
                 IconButton(
                     icon: const Icon(Icons.favorite, color: Colors.black),
                     onPressed: () {
-                      change_page('favorite');
+                      changePage('favorite');
                     }),
                 IconButton(
                     icon: const Icon(Icons.account_circle, color: Colors.black),
                     onPressed: () {
-                      change_page('account');
+                      changePage('account');
                     }),
               ],
             ),
@@ -97,14 +98,16 @@ class _HomePagesState extends State<HomePages> {
   }
 }
 
-// class HomePages extends StatefulWidget {
-//   const HomePages({Key? key}) : super(key: key);
+
+
+// class Home extends StatefulWidget {
+//   const Home({Key? key}) : super(key: key);
 //
 //   @override
-//   _HomePagesState createState() => _HomePagesState();
+//   _HomeState createState() => _HomeState();
 // }
 //
-// class _HomePagesState extends State<HomePages> {
+// class _HomeState extends State<Home> {
 //   int CurrentPageIndex = 0;
 //
 //   final List pages = [

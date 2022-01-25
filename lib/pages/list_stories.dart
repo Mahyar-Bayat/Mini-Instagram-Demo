@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 
 class ListStories extends StatelessWidget {
+  ListStories({Key? key}) : super(key: key);
   final Row topText = Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
       const Text(
-        'Stories',
+        'استوری ها',
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       Row(
         children: const <Widget>[
           Text(
-            'See All',
+            'مشاهده همه',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
-          Icon(Icons.play_arrow)
+          IconButton(onPressed: null , icon: Icon(Icons.play_arrow ,color: Colors.black,))
         ],
       )
     ],
   );
   final stories = Expanded(
     child: Padding(
-        padding: EdgeInsets.only(top: 5),
+        padding: const EdgeInsets.only(top: 5),
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 10,
@@ -30,18 +31,18 @@ class ListStories extends StatelessWidget {
                 // alignment: Alignment.bottomRight,
                 children: <Widget>[
                   Container(
-                    width: 80,
-                    height: 80,
-                    decoration: BoxDecoration(
+                    width: 67,
+                    height: 67,
+                    decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
                             fit: BoxFit.fill,
                             image: NetworkImage(
                                 "https://www.goodcountry.org/images/_square/Hassan-Rohani.jpg"))),
-                    margin: EdgeInsets.symmetric(horizontal: 4),
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
                   ),
                   index == 0
-                      ? Positioned(
+                      ? const Positioned(
                           right: 3,
                           bottom: 0,
                           child: CircleAvatar(
@@ -59,6 +60,8 @@ class ListStories extends StatelessWidget {
               );
             })),
   );
+
+
 
   @override
   Widget build(BuildContext context) {
