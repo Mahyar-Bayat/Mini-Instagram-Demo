@@ -8,7 +8,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(fontFamily: 'vazir'),
       debugShowCheckedModeBanner: false,
       title: 'اینستاگرام',
       home: Directionality(textDirection: TextDirection.rtl, child: Home()),

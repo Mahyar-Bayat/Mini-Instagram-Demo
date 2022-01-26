@@ -27,7 +27,8 @@ class HomePage extends StatelessWidget {
                 ),
                 const Text(
                   'حسن روحانی',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, fontFamily: 'Vazir'),
                 )
               ],
             ),
@@ -48,9 +49,9 @@ class HomePage extends StatelessWidget {
         children: [
           Expanded(
               child: Image.network(
-                'https://freebeacon.com/wp-content/uploads/2018/05/Hassan-Rouhani.jpg',
-                fit: BoxFit.cover,
-              ))
+            'https://i.guim.co.uk/img/media/12e39a69ee074525ad3c847095462475d56618b9/0_0_3760_2256/master/3760.jpg?width=700&quality=85&auto=format&fit=max&s=8ec04f0e066f38926f828e5c51583354',
+            fit: BoxFit.cover,
+          ))
         ],
       ),
       Padding(
@@ -61,27 +62,35 @@ class HomePage extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                    onPressed: () {print('pressed');},
+                    onPressed: () {
+                      print('pressed');
+                    },
                     icon: const Icon(
                       FontAwesomeIcons.heart,
                       color: Colors.black,
                     )),
-                 IconButton(
-                     onPressed: () {print('pressed');},
+                IconButton(
+                    onPressed: () {
+                      print('pressed');
+                    },
                     icon: const Icon(
                       FontAwesomeIcons.comment,
                       color: Colors.black,
                     )),
-                 IconButton(
-                     onPressed: () {print('pressed');},
+                IconButton(
+                    onPressed: () {
+                      print('pressed');
+                    },
                     icon: const Icon(
                       FontAwesomeIcons.paperPlane,
                       color: Colors.black,
                     )),
-                 Padding(
+                Padding(
                   padding: const EdgeInsets.only(right: 199.0),
                   child: IconButton(
-                      onPressed: () {print('pressed');},
+                      onPressed: () {
+                        print('pressed');
+                      },
                       icon: const Icon(
                         FontAwesomeIcons.bookmark,
                         color: Colors.black,
@@ -115,13 +124,13 @@ class HomePage extends StatelessWidget {
             ),
             const Expanded(
                 child: TextField(
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'اینجا بنویسید.',
-                      hintStyle: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontStyle: FontStyle.italic)),
-                )),
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'اینجا بنویسید.',
+                  hintStyle: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontStyle: FontStyle.italic)),
+            )),
           ],
         ),
       ),
@@ -143,12 +152,11 @@ class HomePage extends StatelessWidget {
       itemBuilder: (context, index) {
         return index == 0
             ? SizedBox(
-          child: ListStories(),
-          height: screenSize.height * 0.20,
-        )
-            :post;
+                child: ListStories(),
+                height: screenSize.height * 0.20,
+              )
+            : post;
       },
     );
   }
 }
-
